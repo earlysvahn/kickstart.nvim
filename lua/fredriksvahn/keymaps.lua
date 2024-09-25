@@ -42,13 +42,15 @@ keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window'
 keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Copy text to " register
-keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank into " register' })
-keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank into " register' })
-keymap.set('n', '<leader>Y', '"+Y', { desc = '[Y]ank into " register' })
+keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank selected text into " register in normal mode' })
+keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank selected text into " register in visual mode' })
+keymap.set('n', '<leader>Y', '"+Y', { desc = '[Y]ank entire line into " register in normal mode' })
+keymap.set('n', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = '[Y]ank entire file into " register in normal mode' })
+keymap.set('v', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = '[Y]ank entire file into " register in visual mode' })
 
 -- Delete text to " register
-keymap.set('n', '<leader>d', '"_d', { desc = '[D]elete into " register' })
-keymap.set('v', '<leader>d', '"_d', { desc = '[D]elete into " register' })
+keymap.set('n', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
+keymap.set('v', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
 
 -- Stay in indent mode
 keymap.set('v', '<', '<gv', { desc = 'Indent left and stay in indent mode' })
@@ -56,3 +58,18 @@ keymap.set('v', '>', '>gv', { desc = 'Indent right and stay in indent mode' })
 
 -- Search for highlighted text in buffer
 keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search for highlighted text in buffer' })
+
+-- Key mappings for formatting Lua tables, JavaScript objects, and JSON
+-- This formats a Lua table, JavaScript object, or JSON into a multi-line structure
+
+-- Normal mode mapping: Formats the current line as a Lua table
+keymap.set('n', '<leader>cfl', ':s/{\\s*/{\\r    / | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat Lua object' })
+
+-- Visual mode mapping: Formats the selected text as a Lua table
+keymap.set('v', '<leader>cfl', ':s/{\\s*/{\\r    / | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat Lua object' })
+
+-- Normal mode mapping: Formats the current line as JSON
+keymap.set('n', '<leader>cfj', ':s/{\\s*/{\\r    / | s/: /: \\r    /g | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat JSON object' })
+
+-- Visual mode mapping: Formats the selected text as JSON
+keymap.set('v', '<leader>cfj', ':s/{\\s*/{\\r    / | s/: /: \\r    /g | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat JSON object' })

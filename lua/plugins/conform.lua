@@ -8,10 +8,13 @@ return {
         rust = { 'rustfmt' },
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
         typescript = { 'prettierd', 'prettier', stop_after_first = true },
-        go = { 'gofmt' },
+        go = { 'goimports' },
         terraform = { 'terraform' },
         dockerfile = { 'dockfmt' },
+        cs = { 'csharpier' },
+        sql = { 'sql_formatter' },
       },
+
       format_on_save = {
         timeout_ms = 500,
         lsp_format = 'fallback',

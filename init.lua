@@ -1,5 +1,6 @@
 require 'fredriksvahn/options'
 require 'fredriksvahn/keymaps'
+require 'fredriksvahn/autocmds'
 
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -317,7 +318,14 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
+        sqlls = {
+          cmd = { 'sql-language-server', 'up', '--method', 'stdio' },
+        },
+        omnisharp = {
+          require('lspconfig').omnisharp.setup {
+            cmd = { 'omnisharp', '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
+          },
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -422,6 +430,7 @@ require('lazy').setup({
       require('mini.ai').setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
+      --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
