@@ -18,6 +18,24 @@ keymap.set('v', '<space>}', 'c{<C-r>"}', { desc = 'Replace selection with curly 
 keymap.set('v', '<space>]', 'c[<C-r>"]', { desc = 'Replace selection with square brackets []' })
 keymap.set('v', '<space>)', 'c(<C-r>")', { desc = 'Replace selection with parentheses [)]' })
 
+-- Buffer keymaps
+vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
+vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
+vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
+vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
+vim.keymap.set('n', '<leader>bb', '<cmd>Telescope buffers<cr>', { desc = '[B]uffer [B]rowse' })
+vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
+vim.keymap.set('n', '<leader>ba', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer delete [A]ll' })
+vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer [O]nly keep current' })
+vim.keymap.set('n', '<leader>bh', '<cmd>BufferLineMovePrev<cr>', { desc = '[B]uffer move [L]eft' })
+vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineMoveNext<cr>', { desc = '[B]uffer move [R]ight' })
+vim.keymap.set('n', '<leader>bt', '<cmd>BufferLineTogglePin<cr>', { desc = '[B]uffer [T]oggle pin' })
+vim.keymap.set('n', '<leader>bc', '<cmd>BufferLinePickClose<cr>', { desc = '[B]uffer [C]lose pick' })
+vim.keymap.set('n', '<leader>bf', '<cmd>BufferLineGoToBuffer 1<cr>', { desc = '[B]uffer [F]irst' })
+vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineGoToBuffer -1<cr>', { desc = '[B]uffer [L]ast' })
+
+vim.keymap.set('n', '<leader>bb', '<cmd>b#<cr>', { desc = '[B]uffer toggle between [B]uffers' })
+
 -- Resize with arrows
 keymap.set('n', '<C-S-Down>', ':resize +2<CR>', { desc = 'Resize horizontal split [Down]' })
 keymap.set('n', '<C-S-Up>', ':resize -2<CR>', { desc = 'Resize horizontal split [Up]' })
