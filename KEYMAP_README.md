@@ -29,15 +29,15 @@ This table contains the keymaps used in Neovim with their associated commands an
 | n |  bt | [No command] | [B]reakpoint [T]oggle |
 | n |  - | [No command] | ADD DESCRIPTION |
 | n |  fml | [No command] | ADD DESCRIPTION |
-| n |  f | [No command] | [F]ormat buffer |
 | n |  e | [No command] | NeoTree reveal |
-| n |  A | [No command] | harpoon file |
-| n |  5 | [No command] | harpoon to file 5 |
+| n |  f | [No command] | [F]ormat buffer |
 | n |  4 | [No command] | harpoon to file 4 |
 | n |  3 | [No command] | harpoon to file 3 |
 | n |  2 | [No command] | harpoon to file 2 |
 | n |  1 | [No command] | harpoon to file 1 |
 | n |  a | [No command] | harpoon quick menu |
+| n |  A | [No command] | harpoon file |
+| n |  5 | [No command] | harpoon to file 5 |
 | n |  cfj | :s/{\s*/{\r    / | s/: /: \r    /g | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
 | n |  cfl | :s/{\s*/{\r    / | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
 | n |  d | "_dd | [D]elete into " register |
