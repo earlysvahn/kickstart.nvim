@@ -5,11 +5,12 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Mode  | Key | Command | Description |
 |-------|-----|---------|-------------|
   | n | <Esc> | <Cmd>nohlsearch<CR> | Clear search highlights |
-| n | bt | [No command] | [B]reakpoint [T]oggle |
-| n | bp | [No command] | [B]reakpoint [S]et |
 | n | - | [No command] | ADD DESCRIPTION |
-| n | f | [No command] | [F]ormat buffer |
+| n | bp | [No command] | [B]reakpoint [S]et |
+| n | bt | [No command] | [B]reakpoint [T]oggle |
+| n | fml | [No command] | ADD DESCRIPTION |
 | n | e | [No command] | NeoTree reveal |
+| n | f | [No command] | [F]ormat buffer |
 | n | 5 | [No command] | harpoon to file 5 |
 | n | 4 | [No command] | harpoon to file 4 |
 | n | 3 | [No command] | harpoon to file 3 |
@@ -17,7 +18,6 @@ This table contains the keymaps used in Neovim with their associated commands an
 | n | 1 | [No command] | harpoon to file 1 |
 | n | a | [No command] | harpoon quick menu |
 | n | A | [No command] | harpoon file |
-| n | fml | [No command] | ADD DESCRIPTION |
 | n | cfj | :s/{\s*/{\r    / \| s/: /: \r    /g \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
 | n | cfl | :s/{\s*/{\r    / \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
 | n | d | "_dd | [D]elete into " register |
@@ -71,11 +71,11 @@ This table contains the keymaps used in Neovim with their associated commands an
 | n | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> | ADD DESCRIPTION |
+| n | <F7> | [No command] | [F7] See last session result |
 | n | <F3> | [No command] | [F3] Step Out |
 | n | <F2> | [No command] | [F2] Step Over |
 | n | <F1> | [No command] | [F1] Step Into |
 | n | <F5> | [No command] | [F5] Start/Continue |
-| n | <F7> | [No command] | [F7] See last session result |
 | n | <C-K> | <Cmd>NvimTmuxNavigateUp<CR> | ADD DESCRIPTION |
 | n | <C-J> | <Cmd>NvimTmuxNavigateDown<CR> | ADD DESCRIPTION |
 | n | <C-H> | <Cmd>NvimTmuxNavigateLeft<CR> | ADD DESCRIPTION |
