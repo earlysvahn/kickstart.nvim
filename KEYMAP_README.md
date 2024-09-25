@@ -5,38 +5,19 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Mode  | Key | Command | Description |
 |-------|-----|---------|-------------|
   | n | <Esc> | <Cmd>nohlsearch<CR> | Clear search highlights |
-| n | freq | [No command] | [F]requency search |
-| n | Z | [No command] | [Z] Search with Args |
-| n | s/ | [No command] | [S]earch [/] in Open Files |
-| n | / | [No command] | [/] Fuzzily search in current buffer |
-| n | ghp | [No command] | [G]ithub [P]ull Requests |
-| n | ghr | [No command] | [G]ithub [I]ssues |
-| n | sn | [No command] | [S]earch [N]eovim files |
-| n | sa | [No command] | [S]earch with [A]rgs (live grep) |
-| n | cs | [No command] | [C]hoose [S]cheme with preview |
-| n | s. | [No command] | [S]earch Recent Files ("." for repeat) |
-| n | sr | [No command] | [S]earch [R]esume |
-| n | sd | [No command] | [S]earch [D]iagnostics |
-| n | sg | [No command] | [S]earch by [G]rep |
-| n | sw | [No command] | [S]earch current [W]ord |
-| n | ss | [No command] | [S]earch [S]elect Telescope |
-| n | sf | [No command] | [S]earch [F]iles |
-| n | sk | [No command] | [S]earch [K]eymaps |
-| n | sh | [No command] | [S]earch [H]elp |
-| n | nd | <Cmd>NoiceDismiss<CR> | Dismiss Noice Message |
-| n | - | [No command] | ADD DESCRIPTION |
 | n | bp | [No command] | [B]reakpoint [S]et |
 | n | bt | [No command] | [B]reakpoint [T]oggle |
-| n | 2 | [No command] | harpoon to file 2 |
+| n | - | [No command] | ADD DESCRIPTION |
+| n | fml | [No command] | ADD DESCRIPTION |
 | n | 1 | [No command] | harpoon to file 1 |
 | n | a | [No command] | harpoon quick menu |
 | n | A | [No command] | harpoon file |
 | n | 5 | [No command] | harpoon to file 5 |
 | n | 4 | [No command] | harpoon to file 4 |
 | n | 3 | [No command] | harpoon to file 3 |
-| n | fml | [No command] | ADD DESCRIPTION |
-| n | f | [No command] | [F]ormat buffer |
+| n | 2 | [No command] | harpoon to file 2 |
 | n | e | [No command] | NeoTree reveal |
+| n | f | [No command] | [F]ormat buffer |
 | n | cfj | :s/{\s*/{\r    / \| s/: /: \r    /g \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
 | n | cfl | :s/{\s*/{\r    / \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
 | n | d | "_dd | [D]elete into " register |
@@ -86,16 +67,15 @@ This table contains the keymaps used in Neovim with their associated commands an
 | n | zK | [No command] | Peek Fold |
 | n | zM | [No command] | Close all folds |
 | n | zR | [No command] | Open all folds |
-| n | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> | ADD DESCRIPTION |
 | n | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> | ADD DESCRIPTION |
+| n | <F2> | [No command] | [F2] Step Over |
 | n | <F1> | [No command] | [F1] Step Into |
 | n | <F5> | [No command] | [F5] Start/Continue |
 | n | <F7> | [No command] | [F7] See last session result |
 | n | <F3> | [No command] | [F3] Step Out |
-| n | <F2> | [No command] | [F2] Step Over |
 | n | <C-K> | <Cmd>NvimTmuxNavigateUp<CR> | ADD DESCRIPTION |
 | n | <C-J> | <Cmd>NvimTmuxNavigateDown<CR> | ADD DESCRIPTION |
 | n | <C-H> | <Cmd>NvimTmuxNavigateLeft<CR> | ADD DESCRIPTION |
@@ -166,7 +146,6 @@ This table contains the keymaps used in Neovim with their associated commands an
 | i | <Plug>(codeium-dismiss) | <Cmd>call codeium#Clear()<CR> | ADD DESCRIPTION |
 | i | <C-W> | <C-G>u<C-W> | :help i_CTRL-W-default |
 | i | <C-U> | <C-G>u<C-U> | :help i_CTRL-U-default |
-| i | <Tab> | codeium#Accept() | ADD DESCRIPTION |
 | x | f | [No command] | [F]ormat buffer |
 | x | cfj | :s/{\s*/{\r    / \| s/: /: \r    /g \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
 | x | cfl | :s/{\s*/{\r    / \| s/, /,\r    /g \| s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
@@ -208,5 +187,4 @@ This table contains the keymaps used in Neovim with their associated commands an
 | x | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` | ADD DESCRIPTION |
 | x | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` | ADD DESCRIPTION |
 | x | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") \| exe ":normal! m'" \| endif<CR>gv`` | ADD DESCRIPTION |
-| c | <Plug>(TelescopeFuzzyCommandSearch) | <C-\>e "lua require('telescope.builtin').command_history { default_text = [=[" . escape(getcmdline(), '"') . "]=] }"<CR><CR> | ADD DESCRIPTION |
 | t | <C-T> | <C-\><C-N> | Exit terminal mode |
