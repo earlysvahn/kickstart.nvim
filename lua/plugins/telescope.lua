@@ -89,7 +89,7 @@ return {
       extensions.live_grep_args.live_grep_args { prompt_title = 'Live Grep with Args' }
     end, { desc = '[F]ind with Args' })
 
-    vim.keymap.set('n', '<leader>ffreq', function()
+    vim.keymap.set('n', '<leader>fq', function()
       -- Add your frequency search logic here
       print 'Frequency search triggered!' -- Replace with actual logic
     end, { desc = '[F]requency search' })

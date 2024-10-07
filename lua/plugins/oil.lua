@@ -12,7 +12,7 @@ return {
           ['<C-j>'] = false,
           ['<M-h>'] = 'actions.select_split',
         },
-
+        watch_for_changes = true,
         view_options = {
           show_hidden = true,
         },

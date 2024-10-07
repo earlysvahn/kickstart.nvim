@@ -4,6 +4,8 @@ keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Lef
 
 keymap.set('n', '<leader>w', ':setlocal formatoptions-=cro<CR>:w<CR>', { noremap = true, silent = true, desc = '[W]rite without auto comment' })
 keymap.set('n', '<space><space>i', ':e ~/.config/nvim/<CR>', { desc = 'Open [I]nit config' })
+keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/dotfiles/tmux/tmux-sessionizer.sh<CR>')
+keymap.set('n', '<space>ss', ':!tmux popup -E bash ~/dotfiles/tmux/tmux-sessionizer.sh<CR>')
 
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected line [J]own' })
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected line [K]up' })
@@ -69,6 +71,8 @@ keymap.set('v', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = 
 -- Delete text to " register
 keymap.set('n', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
 keymap.set('v', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
+keymap.set('v', '<leader>gd', ':s/\\v\\s*(\\/\\/|--|#).*//<CR>', { desc = '[D]elete [C]omments' })
+keymap.set('n', '<leader>gd', ':s/\\v\\s*(\\/\\/|--|#).*//<CR>', { desc = '[D]elete [C]omments' })
 
 -- Stay in indent mode
 keymap.set('v', '<', '<gv', { desc = 'Indent left and stay in indent mode' })
