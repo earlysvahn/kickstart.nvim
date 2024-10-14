@@ -1,8 +1,18 @@
 return {
   {
+    'sainnhe/everforest',
+    priority = 1000,
+    config = function()
+      vim.g.everforest_background = 'hard' -- Options: 'hard', 'medium', 'soft'
+      vim.g.everforest_enable_italic = 1 -- Enable italic comments and keywords
+      vim.cmd.colorscheme 'everforest' -- Set Everforest as the active theme
+    end,
+  },
+
+  -- Catppuccin (leave for optional usage)
+  {
     'catppuccin/nvim',
     event = 'VimEnter',
-    priority = 1000,
     name = 'catppuccin',
     cond = function()
       return not vim.g.vscode
@@ -14,7 +24,7 @@ return {
       integrations = {
         alpha = true,
         cmp = true,
-        gitsigns = true,
+        gitsigns = false,
         lsp_trouble = true,
         mason = true,
         mini = true,
@@ -36,25 +46,9 @@ return {
         },
       },
     },
-    config = function()
-      if vim.g.vscode then
-        vim.cmd.colorscheme ''
-      else
-        vim.cmd.colorscheme 'catppuccin'
-      end
-      if vim.g.vscode then
-        vim.cmd.colorscheme ''
-      else
-        vim.cmd.colorscheme 'catppuccin'
-        vim.cmd [[highlight Normal guibg=NONE ctermbg=NONE]]
-        vim.cmd [[highlight NonText guibg=NONE ctermbg=NONE]]
-        vim.cmd [[highlight LineNr guibg=NONE ctermbg=NONE]]
-        vim.cmd [[highlight Folded guibg=NONE ctermbg=NONE]]
-        vim.cmd [[highlight EndOfBuffer guibg=NONE ctermbg=NONE]]
-      end
-    end,
   },
 
+  -- Theme collection
   'tckmn/hotdog.vim',
   'rktjmp/lush.nvim',
   'dundargoc/fakedonalds.nvim',
@@ -73,7 +67,6 @@ return {
   'cocopon/iceberg.vim',
   'kepano/flexoki-neovim',
   'ntk148v/komau.vim',
-  { 'catppuccin/nvim', name = 'catppuccin' },
   'uloco/bluloco.nvim',
   'LuRsT/austere.vim',
   'ricardoraposo/gruvbox-minor.nvim',
@@ -81,8 +74,7 @@ return {
   {
     'maxmx03/fluoromachine.nvim',
     config = function()
-      local fm = require 'fluoromachine'
-      fm.setup { glow = true, theme = 'fluoromachine' }
+      require('fluoromachine').setup { glow = true, theme = 'fluoromachine' }
     end,
   },
 }

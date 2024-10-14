@@ -4,8 +4,8 @@ keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Lef
 
 keymap.set('n', '<leader>w', ':setlocal formatoptions-=cro<CR>:w<CR>', { noremap = true, silent = true, desc = '[W]rite without auto comment' })
 keymap.set('n', '<space><space>i', ':e ~/.config/nvim/<CR>', { desc = 'Open [I]nit config' })
-keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/dotfiles/tmux/tmux-sessionizer.sh<CR>')
-keymap.set('n', '<space>ss', ':!tmux popup -E bash ~/dotfiles/tmux/tmux-sessionizer.sh<CR>')
+keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR>')
+keymap.set('n', '<space>ss', ':!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR>')
 
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected line [J]own' })
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected line [K]up' })
@@ -71,8 +71,6 @@ keymap.set('v', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = 
 -- Delete text to " register
 keymap.set('n', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
 keymap.set('v', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
-keymap.set('v', '<leader>gd', ':s/\\v\\s*(\\/\\/|--|#).*//<CR>', { desc = '[D]elete [C]omments' })
-keymap.set('n', '<leader>gd', ':s/\\v\\s*(\\/\\/|--|#).*//<CR>', { desc = '[D]elete [C]omments' })
 
 -- Stay in indent mode
 keymap.set('v', '<', '<gv', { desc = 'Indent left and stay in indent mode' })
@@ -81,17 +79,9 @@ keymap.set('v', '>', '>gv', { desc = 'Indent right and stay in indent mode' })
 -- Search for highlighted text in buffer
 keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search for highlighted text in buffer' })
 
--- Key mappings for formatting Lua tables, JavaScript objects, and JSON
--- This formats a Lua table, JavaScript object, or JSON into a multi-line structure
-
--- Normal mode mapping: Formats the current line as a Lua table
-keymap.set('n', '<leader>cfl', ':s/{\\s*/{\\r    / | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat Lua object' })
-
--- Visual mode mapping: Formats the selected text as a Lua table
-keymap.set('v', '<leader>cfl', ':s/{\\s*/{\\r    / | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat Lua object' })
-
--- Normal mode mapping: Formats the current line as JSON
-keymap.set('n', '<leader>cfj', ':s/{\\s*/{\\r    / | s/: /: \\r    /g | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat JSON object' })
-
--- Visual mode mapping: Formats the selected text as JSON
-keymap.set('v', '<leader>cfj', ':s/{\\s*/{\\r    / | s/: /: \\r    /g | s/, /,\\r    /g | s/\\s*}/\\r}/<CR>', { desc = '[C]ode [F]ormat JSON object' })
+-- C#
+vim.keymap.set('n', '<Leader>cu', require('fredriksvahn.utils.globalusings').move_usings_to_global, { desc = '[C#] Move usings to GlobalUsings.cs' })
+vim.keymap.set('n', '<Leader>cc', ':!dotnet build<CR>', { desc = '[C#] [B]uild Project' })
+vim.keymap.set('n', '<Leader>cr', ':!dotnet run<CR>', { desc = '[C#] [R]un Project' })
+vim.keymap.set('n', '<Leader>cf', ':!dotnet format<CR>', { desc = '[C#] [F]ormat Code' })
+vim.keymap.set('n', '<Leader>ct', ':!dotnet test<CR>', { desc = '[C#] Run [T]ests' })
