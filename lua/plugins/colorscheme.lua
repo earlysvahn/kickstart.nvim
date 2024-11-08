@@ -5,11 +5,11 @@ return {
     config = function()
       vim.g.everforest_background = 'hard' -- Options: 'hard', 'medium', 'soft'
       vim.g.everforest_enable_italic = 1 -- Enable italic comments and keywords
-      vim.cmd.colorscheme 'everforest' -- Set Everforest as the active theme
+      vim.cmd.colorscheme 'base16-everforest' -- Set Everforest as the active theme
     end,
   },
 
-  -- Catppuccin (leave for optional usage)
+  { 'projekt0n/caret.nvim' },
   {
     'catppuccin/nvim',
     event = 'VimEnter',

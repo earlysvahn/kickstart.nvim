@@ -39,7 +39,7 @@ return {
         'netcoredbg',
       },
     }
-
+    vim.fn.sign_define('DapBreakpoint', { text = '⏺', texthl = 'DapBreakpoint', linehl = 'DapBreakpoint', numhl = 'DapBreakpoint' })
     -- DAP UI setup
     dapui.setup {
       icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },

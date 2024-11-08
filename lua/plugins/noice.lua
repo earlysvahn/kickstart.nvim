@@ -35,6 +35,12 @@ return {
         enabled = true,
         view = 'notify',
       },
+      routes = {
+        {
+          view = 'notify',
+          filter = { event = 'msg_showmode' },
+        },
+      },
     }
 
     vim.keymap.set('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', { desc = 'Dismiss Noice Message' })

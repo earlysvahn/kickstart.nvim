@@ -2,6 +2,7 @@ local keymap = vim.keymap
 
 keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = '[R]eplace word under cursor' })
 
+keymap.set('n', '<C-a>', '<C-w>p', { silent = true, desc = 'Switch to Last Window' })
 keymap.set('n', '<leader>w', ':setlocal formatoptions-=cro<CR>:w<CR>', { noremap = true, silent = true, desc = '[W]rite without auto comment' })
 keymap.set('n', '<space><space>i', ':e ~/.config/nvim/<CR>', { desc = 'Open [I]nit config' })
 keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR>')
@@ -21,22 +22,20 @@ keymap.set('v', '<space>]', 'c[<C-r>"]', { desc = 'Replace selection with square
 keymap.set('v', '<space>)', 'c(<C-r>")', { desc = 'Replace selection with parentheses [)]' })
 
 -- Buffer keymaps
-vim.keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
-vim.keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
-vim.keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
-vim.keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
-vim.keymap.set('n', '<leader>bb', '<cmd>Telescope buffers<cr>', { desc = '[B]uffer [B]rowse' })
-vim.keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
-vim.keymap.set('n', '<leader>ba', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer delete [A]ll' })
-vim.keymap.set('n', '<leader>bo', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer [O]nly keep current' })
-vim.keymap.set('n', '<leader>bh', '<cmd>BufferLineMovePrev<cr>', { desc = '[B]uffer move [L]eft' })
-vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineMoveNext<cr>', { desc = '[B]uffer move [R]ight' })
-vim.keymap.set('n', '<leader>bt', '<cmd>BufferLineTogglePin<cr>', { desc = '[B]uffer [T]oggle pin' })
-vim.keymap.set('n', '<leader>bc', '<cmd>BufferLinePickClose<cr>', { desc = '[B]uffer [C]lose pick' })
-vim.keymap.set('n', '<leader>bf', '<cmd>BufferLineGoToBuffer 1<cr>', { desc = '[B]uffer [F]irst' })
-vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineGoToBuffer -1<cr>', { desc = '[B]uffer [L]ast' })
-
-vim.keymap.set('n', '<leader>bb', '<cmd>b#<cr>', { desc = '[B]uffer toggle between [B]uffers' })
+keymap.set('n', '[b', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
+keymap.set('n', '<leader>bp', '<cmd>bprevious<cr>', { desc = '[B]uffer [P]revious' })
+keymap.set('n', ']b', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
+keymap.set('n', '<leader>bn', '<cmd>bnext<cr>', { desc = '[B]uffer [N]ext' })
+keymap.set('n', '<leader>bb', '<cmd>b#<cr>', { desc = '[B]uffer toggle between [B]uffers' }) -- Fixed single purpose for <leader>bb
+keymap.set('n', '<leader>bd', '<cmd>bdelete<cr>', { desc = '[B]uffer [D]elete' })
+keymap.set('n', '<leader>ba', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer delete [A]ll' })
+keymap.set('n', '<leader>bo', '<cmd>%bd|e#|bd#<cr>', { desc = '[B]uffer [O]nly keep current' })
+keymap.set('n', '<leader>bh', '<cmd>BufferLineMovePrev<cr>', { desc = '[B]uffer move [L]eft' })
+keymap.set('n', '<leader>bj', '<cmd>BufferLineMoveNext<cr>', { desc = '[B]uffer move [R]ight' }) -- Changed from bl to bj to avoid conflict
+keymap.set('n', '<leader>bt', '<cmd>BufferLineTogglePin<cr>', { desc = '[B]uffer [T]oggle pin' })
+keymap.set('n', '<leader>bc', '<cmd>BufferLinePickClose<cr>', { desc = '[B]uffer [C]lose pick' })
+keymap.set('n', '<leader>bf', '<cmd>BufferLineGoToBuffer 1<cr>', { desc = '[B]uffer [F]irst' })
+keymap.set('n', '<leader>bl', '<cmd>BufferLineGoToBuffer -1<cr>', { desc = '[B]uffer [L]ast' })
 
 -- Resize with arrows
 keymap.set('n', '<C-S-Down>', ':resize +2<CR>', { desc = 'Resize horizontal split [Down]' })
@@ -69,8 +68,8 @@ keymap.set('n', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = 
 keymap.set('v', '<leader>ya', 'gg"+yG', { noremap = true, silent = true, desc = '[Y]ank entire file into " register in visual mode' })
 
 -- Delete text to " register
-keymap.set('n', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
-keymap.set('v', '<leader>d', '"_dd', { desc = '[D]elete into " register' })
+keymap.set('n', '<leader>_', '"_dd', { desc = '[D]elete into " register' })
+keymap.set('v', '<leader>_', '"_dd', { desc = '[D]elete into " register' })
 
 -- Stay in indent mode
 keymap.set('v', '<', '<gv', { desc = 'Indent left and stay in indent mode' })

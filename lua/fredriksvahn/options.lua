@@ -18,7 +18,6 @@ opt.mouse = 'a'
 opt.showmode = false
 
 opt.list = false
-
 vim.schedule(function()
   opt.clipboard = 'unnamedplus'
 end)
@@ -30,8 +29,6 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.signcolumn = 'no'
-
 opt.updatetime = 250
 
 opt.timeoutlen = 300
@@ -40,3 +37,4 @@ opt.splitbelow = true
 opt.inccommand = 'split'
 opt.cursorline = true
 opt.scrolloff = 10
+opt.foldcolumn = '0'

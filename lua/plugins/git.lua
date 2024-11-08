@@ -16,15 +16,4 @@ return {
       { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup {
-        signcolumn = false,
-      }
-    end,
-    keys = {
-      { '<space>bl', ':Gitsigns blame_line<CR>' },
-    },
-  },
 }
