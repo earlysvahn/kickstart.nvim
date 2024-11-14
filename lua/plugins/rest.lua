@@ -2,7 +2,7 @@ return {
   'rest-nvim/rest.nvim',
   requires = { 'nvim-lua/plenary.nvim', 'folke/noice.nvim' },
   config = function()
-    vim.g.rest_nvim = {
+    vim.g.rest_vim = {
       result_split_horizontal = false,
       result_split_in_place = false,
       skip_ssl_verification = false,
@@ -44,13 +44,18 @@ return {
       return false
     end
 
-    -- Define the function to select and run a request in a new tmux window
     local function select_and_run_request()
-      -- Check if any service is running on the specified ports
       if not any_service_running() then
-        -- Show error message using noice.nvim if no service is detected
-        noice.notify('Error: No service running on ports 3000, 5500, or 8080.', 'error')
-        return -- Skip execution
+        noice.notify('No service running on ports 3000, 5500, or 8080.', 'warn')
+
+        vim.ui.select({ 'air', 'dotnet', 'cancel' }, { prompt = 'Do you want to run a service?' }, function(choice)
+          if choice == 'air' then
+            vim.fn.system "tmux new-window -n air 'air'"
+          elseif choice == 'dotnet' then
+            vim.fn.system "tmux new-window -n dotnet 'dr'"
+          end
+        end)
+        return -- Skip execution of the request if no service was running
       end
 
       -- Determine the project root and requests directory
