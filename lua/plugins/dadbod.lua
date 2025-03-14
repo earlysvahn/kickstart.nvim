@@ -18,8 +18,10 @@ return {
 
       vim.g.dbs = {
         { name = '[DEV] Deadletter', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/deadletter' },
+        { name = '[DEV] Kiwi-api', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/kiwi-api' },
         { name = '[DEV] Munin', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2101/munin-api' },
         { name = '[DEV] Niffler', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/niffler' },
+        { name = '[DEV] Preen', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/preen-service' },
         { name = '[DEV] Shipment', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/shipment' },
         { name = '[DEV] Quetzalcoatlus', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2001/quetzalcoatlus' },
         { name = '[TEST] Munin', url = 'postgresql://fredrik.svahn%40earlybird.se@localhost:2102/munin-api' },

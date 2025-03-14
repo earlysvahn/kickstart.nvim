@@ -68,6 +68,7 @@ return {
         { name = 'luasnip' },
         { name = 'path' },
         { name = 'buffer' },
+        { name = 'codecompanion' },
       },
       cmp.setup.filetype({ 'sql' }, {
         sources = {

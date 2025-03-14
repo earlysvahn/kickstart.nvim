@@ -4,7 +4,7 @@ return {
     priority = 1000,
     config = function()
       vim.g.everforest_background = 'hard' -- Options: 'hard', 'medium', 'soft'
-      vim.g.everforest_enable_italic = 1 -- Enable italic comments and keywords
+      vim.g.everforest_enable_italic = 0 -- Enable italic comments and keywords
       vim.cmd.colorscheme 'base16-everforest' -- Set Everforest as the active theme
     end,
   },
@@ -37,7 +37,6 @@ return {
             information = { 'undercurl' },
           },
         },
-        telescope = true,
         treesitter = true,
         which_key = true,
         nvimtree = {
