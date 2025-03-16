@@ -5,66 +5,62 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Mode  | Key | Command | Description |
 |-------|-----|---------|-------------|
 | Normal | <Esc> | <Cmd>nohlsearch<CR> | Clear search highlights |
-| Normal |  e | [No command] | [F]ormat buffer |
-| Normal |  gr | <Cmd>:ChatGPTRun<CR> | ADD DESCRIPTION |
-| Normal |  gt | <Cmd>:ChatGPTEditWithInstructions<CR> | ADD DESCRIPTION |
-| Normal |  gA | <Cmd>:ChatGPTActAs<CR> | ADD DESCRIPTION |
-| Normal |  ga | <Cmd>:ChatGPT<CR> | ADD DESCRIPTION |
-| Normal |  - | [No command] | ADD DESCRIPTION |
-| Normal |  bp | [No command] | [B]reakpoint [S]et |
-| Normal |  bt | [No command] | [B]reakpoint [T]oggle |
-| Normal |  fq | [No command] | [F]requency search |
+| Normal |  nd | <Cmd>NoiceDismiss<CR> | Dismiss Noice Message |
+| Normal |  ghp | [No command] | [G]it [P]ull Requests (branches) |
+| Normal |  ghr | [No command] | [G]it [H]istory (commits) |
 | Normal |  fz | [No command] | [F]ind with Args |
+| Normal |  ff | [No command] | ADD DESCRIPTION |
+| Normal |  fg | [No command] | ADD DESCRIPTION |
+| Normal |  fG | [No command] | [F]ind with [A]rgs (live grep) |
+| Normal |  fn | [No command] | [F]ind [N]eovim files |
 | Normal |  fs/ | [No command] | [F]ind [S]earch in Open Files |
 | Normal |  f/ | [No command] | [F]ind in current buffer |
-| Normal |  ghp | [No command] | [G]ithub [P]ull Requests |
-| Normal |  ghr | [No command] | [G]ithub [I]ssues |
-| Normal |  fn | [No command] | [F]ind [N]eovim files |
-| Normal |  fa | [No command] | [F]ind with [A]rgs (live grep) |
-| Normal |  fc | [No command] | [F]ind [C]olorscheme with preview |
-| Normal |    | [No command] | [ ] Find existing buffers |
-| Normal |  f. | [No command] | [F]ind Recent Files |
-| Normal |  fr | [No command] | [F]ind [R]esume |
-| Normal |  fd | [No command] | [F]ind [D]iagnostics |
-| Normal |  fg | [No command] | [F]ind by [G]rep |
-| Normal |  fw | [No command] | [F]ind current [W]ord |
-| Normal |  fs | [No command] | [F]ind [S]elect Telescope |
-| Normal |  ff | [No command] | [F]ind [F]iles |
-| Normal |  fk | [No command] | [F]ind [K]eymaps |
-| Normal |  fh | [No command] | [F]ind [H]elp |
-| Normal |  nd | <Cmd>NoiceDismiss<CR> | Dismiss Noice Message |
-| Normal |  fml | [No command] | ADD DESCRIPTION |
-| Normal |  a | [No command] | harpoon quick menu |
-| Normal |  A | [No command] | harpoon file |
+| Normal |  fo | [No command] | [F]zf [O]pen Git actions |
+| Normal |  - | [No command] | ADD DESCRIPTION |
+| Normal |  dr | :DBUIRenameBuffer<CR> | ADD DESCRIPTION |
+| Normal |  da | :DBUIAddConnection<CR> | ADD DESCRIPTION |
+| Normal |  df | :DBUIFindBuffer<CR> | ADD DESCRIPTION |
+| Normal |  do | :silent !tmux new-window -n db "nvim +DBUIToggle"<CR> | [D]atabase [O]pen in new Tmux window |
 | Normal |  5 | [No command] | harpoon to file 5 |
 | Normal |  4 | [No command] | harpoon to file 4 |
 | Normal |  3 | [No command] | harpoon to file 3 |
 | Normal |  2 | [No command] | harpoon to file 2 |
 | Normal |  1 | [No command] | harpoon to file 1 |
+| Normal |  a | [No command] | harpoon quick menu |
+| Normal |  A | [No command] | harpoon file |
+| Normal |  fml | [No command] | ADD DESCRIPTION |
+| Normal |  e | [No command] | [F]ormat buffer |
+| Normal |  z | [No command] | Toggle [Z]en Mode |
 | Normal |  lg | [No command] | LazyGit |
-| Normal |  cfj | :s/{\s*/{\r    / | s/: /: \r    /g | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
-| Normal |  cfl | :s/{\s*/{\r    / | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
-| Normal |  gd | :s/\v\s*(\/\/|--|#).*//<CR> | [D]elete [C]omments |
-| Normal |  d | "_dd | [D]elete into " register |
+| Normal |  § | [No command] | ADD DESCRIPTION |
+| Normal |  ct | :!dotnet test<CR> | [C#] Run [T]ests |
+| Normal |  cf | :!dotnet format<CR> | [C#] [F]ormat Code |
+| Normal |  cr | :!dotnet run<CR> | [C#] [R]un Project |
+| Normal |  cc | :!dotnet build<CR> | [C#] [B]uild Project |
+| Normal |  cu | [No command] | [C#] Move usings to GlobalUsings.cs |
+| Normal |  _ | "_dd | [D]elete into " register |
 | Normal |  ya | gg"+yG | [Y]ank entire file into " register in normal mode |
 | Normal |  Y | "+Y | [Y]ank entire line into " register in normal mode |
 | Normal |  y | "+y | [Y]ank selected text into " register in normal mode |
 | Normal |  q | [No command] | Open diagnostic [Q]uickfix list |
+| Normal |  bl | <Cmd>BufferLineGoToBuffer -1<CR> | [B]uffer [L]ast |
 | Normal |  bf | <Cmd>BufferLineGoToBuffer 1<CR> | [B]uffer [F]irst |
 | Normal |  bc | <Cmd>BufferLinePickClose<CR> | [B]uffer [C]lose pick |
-| Normal |  bl | [No command] | ADD DESCRIPTION |
+| Normal |  bt | <Cmd>BufferLineTogglePin<CR> | [B]uffer [T]oggle pin |
+| Normal |  bj | <Cmd>BufferLineMoveNext<CR> | [B]uffer move [R]ight |
 | Normal |  bh | <Cmd>BufferLineMovePrev<CR> | [B]uffer move [L]eft |
 | Normal |  bo | <Cmd>%bd|e#|bd#<CR> | [B]uffer [O]nly keep current |
 | Normal |  ba | <Cmd>%bd|e#|bd#<CR> | [B]uffer delete [A]ll |
 | Normal |  bd | <Cmd>bdelete<CR> | [B]uffer [D]elete |
 | Normal |  bb | <Cmd>b#<CR> | [B]uffer toggle between [B]uffers |
 | Normal |  bn | <Cmd>bnext<CR> | [B]uffer [N]ext |
+| Normal |  bp | <Cmd>bprevious<CR> | [B]uffer [P]revious |
 | Normal |  ) | ciw(<C-R>") | Replace word in parentheses [)] |
 | Normal |  ] | ciw[<C-R>"] | Replace word in square brackets [] |
 | Normal |  } | ciw{<C-R>"} | Replace word in curly braces [}] |
 | Normal |  ' | ciw'<C-R>"' | Replace word in single quotes ['] |
 | Normal |  " | ciw"<C-R>"" | Replace word in quotes [" |
-| Normal |  ss | :!tmux popup -E bash ~/dotfiles/tmux/tmux-sessionizer.sh<CR> | ADD DESCRIPTION |
+| Normal |  ss | :!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR> | ADD DESCRIPTION |
 | Normal |   i | :e ~/.config/nvim/<CR> | Open [I]nit config |
 | Normal |  w | :setlocal formatoptions-=cro<CR>:w<CR> | [W]rite without auto comment |
 | Normal |  r | :%s/\<lt><C-R><C-W>\>/<C-R><C-W>/gI<Left><Left><Left> | [R]eplace word under cursor |
@@ -112,17 +108,10 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Normal | zK | [No command] | Peek Fold |
 | Normal | zM | [No command] | Close all folds |
 | Normal | zR | [No command] | Open all folds |
-| Normal | <Plug>luasnip-expand-repeat | [No command] | LuaSnip: Repeat last node expansion |
-| Normal | <Plug>luasnip-delete-check | [No command] | LuaSnip: Removes current snippet from jumplist |
 | Normal | <Plug>(MatchitNormalMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR> | ADD DESCRIPTION |
 | Normal | <Plug>(MatchitNormalMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR> | ADD DESCRIPTION |
 | Normal | <Plug>(MatchitNormalBackward) | :<C-U>call matchit#Match_wrapper('',0,'n')<CR> | ADD DESCRIPTION |
 | Normal | <Plug>(MatchitNormalForward) | :<C-U>call matchit#Match_wrapper('',1,'n')<CR> | ADD DESCRIPTION |
-| Normal | <F3> | [No command] | [F3] Step Out |
-| Normal | <F2> | [No command] | [F2] Step Over |
-| Normal | <F1> | [No command] | [F1] Step Into |
-| Normal | <F5> | [No command] | [F5] Start/Continue |
-| Normal | <F7> | [No command] | [F7] See last session result |
 | Normal | <Plug>PlenaryTestFile | :lua require('plenary.test_harness').test_file(vim.fn.expand("%:p"))<CR> | ADD DESCRIPTION |
 | Normal | <C-K> | <Cmd>NvimTmuxNavigateUp<CR> | ADD DESCRIPTION |
 | Normal | <C-J> | <Cmd>NvimTmuxNavigateDown<CR> | ADD DESCRIPTION |
@@ -135,23 +124,13 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Normal | <C-Left> | :vertical resize -2<CR> | Resize vertical split [Left] |
 | Normal | <C-S-Up> | :resize -2<CR> | Resize horizontal split [Up] |
 | Normal | <C-S-Down> | :resize +2<CR> | Resize horizontal split [Down] |
+| Normal | <C-A> | <C-W>p | Switch to Last Window |
 | Normal | <C-W><C-D> | <C-W>d | Show diagnostics under the cursor |
 | Normal | <C-W>d | [No command] | Show diagnostics under the cursor |
 | Normal | <C-L> | <Cmd>NvimTmuxNavigateRight<CR> | ADD DESCRIPTION |
-| Insert | <C-H> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <Up> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-B> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <Down> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-N> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <S-Tab> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-Y> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-P> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-F> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-Space> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-E> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <C-X> | [No command] | Codeium Clear |
-| Insert | <C-G> | [No command] | Codeium Accept |
-| Insert | <C-L> | [No command] | cmp.utils.keymap.set_map |
+| Insert | <C-X> | [No command] | [C]odeium [X]it |
+| Insert | <C-G> | [No command] | [C]odeium Accept |
+| Insert | <C-L> | codeium#AcceptNextLine() | ADD DESCRIPTION |
 | Insert | <C-K> | codeium#AcceptNextWord() | ADD DESCRIPTION |
 | Insert | <M-Bslash> | <Plug>(codeium-complete) | ADD DESCRIPTION |
 | Insert | <M-[> | <Plug>(codeium-previous) | ADD DESCRIPTION |
@@ -162,23 +141,13 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Insert | <Plug>(codeium-next-or-complete) | <Cmd>call codeium#CycleOrComplete()<CR> | ADD DESCRIPTION |
 | Insert | <Plug>(codeium-next) | <Cmd>call codeium#CycleCompletions(1)<CR> | ADD DESCRIPTION |
 | Insert | <Plug>(codeium-dismiss) | <Cmd>call codeium#Clear()<CR> | ADD DESCRIPTION |
-| Insert | <Plug>luasnip-expand-repeat | [No command] | LuaSnip: Repeat last node expansion |
-| Insert | <Plug>luasnip-delete-check | [No command] | LuaSnip: Removes current snippet from jumplist |
-| Insert | <Plug>luasnip-jump-prev | [No command] | LuaSnip: Jump to the previous node |
-| Insert | <Plug>luasnip-jump-next | [No command] | LuaSnip: Jump to the next node |
-| Insert | <Plug>luasnip-prev-choice | [No command] | LuaSnip: Change to the previous choice from the choiceNode |
-| Insert | <Plug>luasnip-next-choice | [No command] | LuaSnip: Change to the next choice from the choiceNode |
-| Insert | <Plug>luasnip-expand-snippet | [No command] | LuaSnip: Expand the current snippet |
-| Insert | <Plug>luasnip-expand-or-jump | [No command] | LuaSnip: Expand or jump in the current snippet |
 | Insert | <C-W> | <C-G>u<C-W> | :help i_CTRL-W-default |
 | Insert | <C-U> | <C-G>u<C-U> | :help i_CTRL-U-default |
-| Insert | <Tab> | [No command] | cmp.utils.keymap.set_map |
-| Insert | <CR> | [No command] | cmp.utils.keymap.set_map |
+| Insert | <Tab> | codeium#Accept() | ADD DESCRIPTION |
 | Visual |  e | [No command] | [F]ormat buffer |
-| Visual |  cfj | :s/{\s*/{\r    / | s/: /: \r    /g | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
-| Visual |  cfl | :s/{\s*/{\r    / | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
-| Visual |  gd | :s/\v\s*(\/\/|--|#).*//<CR> | [D]elete [C]omments |
-| Visual |  d | "_dd | [D]elete into " register |
+| Visual |  cx | [No command] | [C]odesnap [X]ave into dir |
+| Visual |  cp | [No command] | Save selected code snapshot into clipboard |
+| Visual |  _ | "_dd | [D]elete into " register |
 | Visual |  ya | gg"+yG | [Y]ank entire file into " register in visual mode |
 | Visual |  y | "+y | [Y]ank selected text into " register in visual mode |
 | Visual |  ) | c(<C-R>") | Replace selection with parentheses [)] |
@@ -220,25 +189,15 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Visual | s | [No command] | [S]earch with Flash jump in Normal, Visual, and Operator mode |
 | Visual | sa | :<C-U>lua MiniSurround.add('visual')<CR> | Add surrounding to selection |
 | Visual | t | [No command] | ADD DESCRIPTION |
-| Visual | <C-H> | [No command] | cmp.utils.keymap.set_map |
-| Visual | <C-L> | [No command] | cmp.utils.keymap.set_map |
-| Visual | <Plug>luasnip-jump-prev | [No command] | LuaSnip: Jump to the previous node |
-| Visual | <Plug>luasnip-jump-next | [No command] | LuaSnip: Jump to the next node |
-| Visual | <Plug>luasnip-prev-choice | [No command] | LuaSnip: Change to the previous choice from the choiceNode |
-| Visual | <Plug>luasnip-next-choice | [No command] | LuaSnip: Change to the next choice from the choiceNode |
-| Visual | <Plug>luasnip-expand-snippet | [No command] | LuaSnip: Expand the current snippet |
-| Visual | <Plug>luasnip-expand-or-jump | [No command] | LuaSnip: Expand or jump in the current snippet |
-| Visual | <Plug>luasnip-expand-repeat | [No command] | LuaSnip: Repeat last node expansion |
 | Visual | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) | ADD DESCRIPTION |
 | Visual | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` | ADD DESCRIPTION |
 | Visual | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` | ADD DESCRIPTION |
 | Visual | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` | ADD DESCRIPTION |
 | Visual | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` | ADD DESCRIPTION |
 | Visual (Selection) |  e | [No command] | [F]ormat buffer |
-| Visual (Selection) |  cfj | :s/{\s*/{\r    / | s/: /: \r    /g | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat JSON object |
-| Visual (Selection) |  cfl | :s/{\s*/{\r    / | s/, /,\r    /g | s/\s*}/\r}/<CR> | [C]ode [F]ormat Lua object |
-| Visual (Selection) |  gd | :s/\v\s*(\/\/|--|#).*//<CR> | [D]elete [C]omments |
-| Visual (Selection) |  d | "_dd | [D]elete into " register |
+| Visual (Selection) |  cx | [No command] | [C]odesnap [X]ave into dir |
+| Visual (Selection) |  cp | [No command] | Save selected code snapshot into clipboard |
+| Visual (Selection) |  _ | "_dd | [D]elete into " register |
 | Visual (Selection) |  ya | gg"+yG | [Y]ank entire file into " register in visual mode |
 | Visual (Selection) |  y | "+y | [Y]ank selected text into " register in visual mode |
 | Visual (Selection) |  ) | c(<C-R>") | Replace selection with parentheses [)] |
@@ -280,14 +239,11 @@ This table contains the keymaps used in Neovim with their associated commands an
 | Visual (Selection) | s | [No command] | [S]earch with Flash jump in Normal, Visual, and Operator mode |
 | Visual (Selection) | sa | :<C-U>lua MiniSurround.add('visual')<CR> | Add surrounding to selection |
 | Visual (Selection) | t | [No command] | ADD DESCRIPTION |
-| Visual (Selection) | <Plug>luasnip-expand-repeat | [No command] | LuaSnip: Repeat last node expansion |
 | Visual (Selection) | <Plug>(MatchitVisualTextObject) | <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward) | ADD DESCRIPTION |
 | Visual (Selection) | <Plug>(MatchitVisualMultiForward) | :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv`` | ADD DESCRIPTION |
 | Visual (Selection) | <Plug>(MatchitVisualMultiBackward) | :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv`` | ADD DESCRIPTION |
 | Visual (Selection) | <Plug>(MatchitVisualBackward) | :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv`` | ADD DESCRIPTION |
 | Visual (Selection) | <Plug>(MatchitVisualForward) | :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv`` | ADD DESCRIPTION |
 | Command | <C-S> | [No command] | Toggle Flash Search in Command mode |
-| Command | <Plug>luasnip-expand-repeat | [No command] | LuaSnip: Repeat last node expansion |
-| Command | <Plug>luasnip-delete-check | [No command] | LuaSnip: Removes current snippet from jumplist |
 | Command | <Plug>(TelescopeFuzzyCommandSearch) | <C-\>e "lua require('telescope.builtin').command_history { default_text = [=[" . escape(getcmdline(), '"') . "]=] }"<CR><CR> | ADD DESCRIPTION |
 | Terminal | <C-T> | <C-\><C-N> | Exit terminal mode |
