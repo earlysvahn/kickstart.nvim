@@ -82,5 +82,4 @@ keymap.set('v', '//', 'y/<C-R>"<CR>', { desc = 'Search for highlighted text in b
 vim.keymap.set('n', '<Leader>cu', require('fredriksvahn.utils.globalusings').move_usings_to_global, { desc = '[C#] Move usings to GlobalUsings.cs' })
 vim.keymap.set('n', '<Leader>cc', ':!dotnet build<CR>', { desc = '[C#] [B]uild Project' })
 vim.keymap.set('n', '<Leader>cr', ':!dotnet run<CR>', { desc = '[C#] [R]un Project' })
-vim.keymap.set('n', '<Leader>cf', ':!dotnet format<CR>', { desc = '[C#] [F]ormat Code' })
 vim.keymap.set('n', '<Leader>ct', ':!dotnet test<CR>', { desc = '[C#] Run [T]ests' })

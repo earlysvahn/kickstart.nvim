@@ -77,7 +77,14 @@ return {
       require('fzf-lua').live_grep { cwd = vim.fn.expand '%:p:h' }
     end)
     vim.keymap.set('n', '<leader>ff', function()
-      require('fzf-lua').files { cwd = vim.fn.expand '%:p:h' }
+      local cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+      cwd = vim.fn.trim(cwd)
+
+      if cwd == '' then
+        cwd = vim.fn.expand '%:p:h'
+      end
+
+      require('fzf-lua').files { cwd = cwd }
     end)
 
     vim.keymap.set('n', '<leader>fz', fzf.grep, { desc = '[F]ind with Args' })

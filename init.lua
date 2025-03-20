@@ -64,6 +64,9 @@ require('lazy').setup({
       lazy = '💤 ',
     },
   },
+  rocks = {
+    enabled = false,
+  },
 })
 
 vim.opt.foldcolumn = '0'

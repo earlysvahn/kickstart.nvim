@@ -20,6 +20,8 @@ return {
       local monitor_sizes = {
         ['S24C450'] = { width = 0.8, height = 0.9 },
         ['MSI G241'] = { width = 0.8, height = 0.9 },
+        ['Built-in Retina Display'] = { width = 0.9, height = 0.9 },
+        ['Dell U4919DW'] = { width = 0.35, height = 0.83 },
       }
 
       local size = monitor_sizes[monitor_name] or { width = 0.35, height = 0.83 }

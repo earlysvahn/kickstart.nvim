@@ -10,7 +10,6 @@ return {
     cmd = {
       'DBUI',
       'DBUIToggle',
-      'DBUIAddConnection',
       'DBUIFindBuffer',
     },
     init = function()
@@ -40,7 +39,6 @@ return {
         { noremap = true, silent = true, desc = '[D]atabase [O]pen in new Tmux window' }
       )
       vim.api.nvim_set_keymap('n', '<leader>df', ':DBUIFindBuffer<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap('n', '<leader>da', ':DBUIAddConnection<CR>', { noremap = true, silent = true })
       vim.api.nvim_set_keymap('n', '<leader>dr', ':DBUIRenameBuffer<CR>', { noremap = true, silent = true })
     end,
   },

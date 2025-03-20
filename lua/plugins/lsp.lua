@@ -24,14 +24,15 @@ return {
           end
         end
 
-        -- LSP navigation keymaps
         map('gd', fzf_lua.lsp_definitions, '[G]oto [D]efinition')
         map('gr', fzf_lua.lsp_references, '[G]oto [R]eferences')
         map('gI', fzf_lua.lsp_implementations, '[G]oto [I]mplementation')
+        map('<leader>ds', fzf_lua.lsp_document_symbols, '[D]ocument [S]ymbols')
+        map('<leader>ws', fzf_lua.lsp_workspace_symbols, '[W]orkspace [S]ymbols')
         map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-        map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+        map('<leader>ca', fzf_lua.lsp_code_actions, '[C]ode [A]ction', { 'n', 'x' })
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
+        map('<leader>cw', ':noautocmd w<CR>', '[C]ode [Write] Buffer without formatting')
         -- Inlay hints toggle if supported
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
