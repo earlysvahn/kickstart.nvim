@@ -1,0 +1,74 @@
+export XDG_CONFIG_HOME=$HOME/.config
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export ZSH="$HOME/.oh-my-zsh"
+plugins=( git copypath dotnet git-auto-fetch vi-mode)
+
+[[ -f $HOME/dotfiles/env/.env ]] && source $HOME/dotfiles/env/.env || { echo "Error: .env file not found in $HOME/dotfiles/env/"; exit 1; }
+
+if [[ -f "$HOME/dotfiles/env/.env" ]]; then
+    source "$HOME/dotfiles/env/.env"
+else
+    echo "Error: .env file not found in $HOME/dotfiles/"
+    exit 1
+fi
+
+export TMUX_CONFIG="$HOME/.config/tmux/.tmux.conf"
+
+tmux() {
+    if [ ! -f "$TMUX_CONFIG" ]; then
+        echo "tmux config not found at $TMUX_CONFIG"
+        echo "You may need to 'stow tmux' in your dotfiles directory."
+        return 1
+    fi
+
+    command tmux -f "$TMUX_CONFIG" "$@"
+}
+
+if [[ -d "$HOME/dotfiles/config/functions" ]]; then
+    for function_file in "$HOME/dotfiles/config/functions"/*.sh; do
+        [ -f "$function_file" ] && source "$function_file"
+    done
+fi
+
+
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
+source "$ZSH/oh-my-zsh.sh"
+
+export PATH="/usr/local/share/dotnet:$PATH"
+export PATH=$HOME/.dotnet/tools:$PATH
+export PATH="$HOME/go/bin:$PATH"
+
+# bun completions
+[ -s "/home/fredrik/.bun/_bun" ] && source "/home/fredrik/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(fzf --zsh)"
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git "
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_OPTS="--height 50% --layout=default --border --color=hl:#2dd4bf"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always -n --line-range :500 {}'"
+export FZF_TMUX_OPTS=" -p90%,70% "  
+#
+# Load aliases last due to plugin issues
+if [[ -d "$HOME/dotfiles/config/aliases" ]]; then
+    for alias_file in "$HOME/dotfiles/config/aliases/."*; do
+        [ -f "$alias_file" ] && source "$alias_file"
+    done
+fi
+
+
+GIT_AUTO_FETCH_INTERVAL=60
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/fredrik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/fredrik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/completion.zsh.inc'; fi

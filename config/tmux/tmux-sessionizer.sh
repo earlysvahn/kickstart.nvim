@@ -9,9 +9,8 @@ t() {
 open_sessions=$(tmux list-sessions -F "#{session_name}" 2>/dev/null)
 
 # Find directories and scripts to display
-directories=$(find "$HOME/Development" "$HOME/private-dev" "$HOME/private-dev/nvim-plugins" "$HOME/Development/dooris-repo/apps" "$HOME/.config" "$HOME/dotfiles" "$HOME/dotfiles/scripts" -mindepth 1 -maxdepth 1 -type d 2>/dev/null)
+directories=$(find "$HOME/work" "$HOME/personal" "$HOME/work/dooris-repo/apps" "$HOME/.config" -mindepth 1 -maxdepth 1 -type d 2>/dev/null) 
 
-# List script files separately to be included
 scripts=$(find "$HOME/dotfiles/scripts" -type f -name "*.sh" 2>/dev/null)
 
 # Combine the open sessions, directories, and scripts into the options

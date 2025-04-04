@@ -6,7 +6,7 @@
 alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias mkdir="mkdir -pv"
 alias grep="grep -n --color"
-alias reload="source $HOME/dotfiles/config/.zshrc"
+alias reload="source $HOME/dotfiles/config/zsh/.zshrc"
 alias x="exit"
 alias path='copypath'
 alias cw='clear && wttr'

@@ -1,28 +1,50 @@
 #!/bin/bash
-
-# Clone repository into the development directory or current directory if -c is used
 clonerepo() {
-    local dir="$HOME/development" # Default directory
+    # Get repositories from both dooris-dev and personal accounts
+    repos=$((
+        gh repo list dooris-dev --json name -L 100 |
+        jq -r '.[].name' |
+        sed 's/^/dooris-dev\//'
+    ) && (
+        gh repo list earlysvahn --json name -L 100 |
+        jq -r '.[].name' |
+        sed 's/^/earlysvahn\//'
+    ))
 
-    while getopts "c" opt; do
-        case $opt in
-        c)
-            dir="$PWD" # Set directory to current directory if -c flag is used
-            ;;
-        \?)
-            echo "Invalid option: -$OPTARG" >&2
-            return 1
-            ;;
-        esac
-    done
+    # Use fzf to select a repository with a preview of the README using 'bat'
+    selected_repo=$(echo "$repos" | fzf \
+        --preview '{
+            repo_name=$(echo {1} | cut -d/ -f2);
+            repo_owner=$(echo {1} | cut -d/ -f1);
+            gh api repos/$repo_owner/$repo_name/readme | jq -r .content | base64 --decode | bat --style=plain --color=always --paging=never
+        }' \
+        --preview-window=right:50%:wrap --prompt="Select repository: ")
 
-    shift $((OPTIND - 1))
-
-    if [ -z "$1" ]; then
-        echo "Usage: clonerepo [-c] <repo-name>"
-    else
-        git clone "https://github.com/dooris-dev/$1.git" "$dir/$1"
+    # If no repository is selected, exit
+    if [ -z "$selected_repo" ]; then
+        echo "No repository selected. Exiting."
+        return 1
     fi
+
+    # Determine the directory based on the selected repo
+    if [[ "$selected_repo" == dooris-dev/* ]]; then
+        dir="$HOME/work"
+        owner="dooris-dev"
+    elif [[ "$selected_repo" == earlysvahn/* ]]; then
+        dir="$HOME/personal"
+        owner="earlysvahn"
+    else
+        echo "Invalid repository selection. Exiting."
+        return 1
+    fi
+
+    # Remove the prefix (dooris-dev/ or earlysvahn/) to get the actual repo name
+    repo_name="${selected_repo#*/}"
+
+    # Clone the selected repository into the determined directory using SSH
+    git clone "git@github.com:$owner/$repo_name.git" "$dir/$repo_name"
+
+    echo "Cloned $owner/$repo_name into $dir/$repo_name"
 }
 
 # Add all changes, commit with a message, and push to the remote repository
