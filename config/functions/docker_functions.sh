@@ -23,10 +23,15 @@ start_cloud_sql_proxy() {
         "bird-nest-stage:europe-north1:status-db-instance?port=2103" \
         "bird-nest-prod:europe-north1:status-db-instance?port=2104" \
         "bird-nest-dev:europe-north1:sagas-db-instance?port=2201" \
+        "bird-nest-test:europe-north1:sagas-db-instance?port=2202" \
+        "bird-nest-stage:europe-north1:sagas-db-instance?port=2203" \
+        "bird-nest-prod:europe-north1:sagas-db-instance?port=2204" \
         "bird-nest-dev:europe-north1:address-db-instance?port=2301" \
+        "bird-nest-test:europe-north1:address-db-instance?port=2302" \
+        "bird-nest-stage:europe-north1:address-db-instance?port=2303" \
+        "bird-nest-prod:europe-north1:address-db-instance?port=2304" \
         -i
 }
-
 # Restart Spotify Daemon Docker Container and open Spotify-TUI
 restart_spotifyd() {
     brew services restart spotifyd && spt

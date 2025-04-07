@@ -30,6 +30,11 @@ if [[ -d "$HOME/dotfiles/config/functions" ]]; then
     done
 fi
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/fredrik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/fredrik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/completion.zsh.inc'; fi
 
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
@@ -67,8 +72,3 @@ fi
 
 GIT_AUTO_FETCH_INTERVAL=60
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/fredrik/google-cloud-sdk/path.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/fredrik/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/fredrik/google-cloud-sdk/completion.zsh.inc'; fi
