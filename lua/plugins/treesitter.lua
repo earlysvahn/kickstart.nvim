@@ -2,6 +2,7 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
     { 'nushell/tree-sitter-nu', build = ':TSUpdate nu' },
+    { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- ⬅ adds af/if, ac/ic, etc.
   },
   build = ':TSUpdate',
   main = 'nvim-treesitter.configs', -- Sets main module to use for opts
@@ -13,5 +14,18 @@ return { -- Highlight, edit, and navigate code
       additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = { enable = true, disable = { 'ruby' } },
+    textobjects = {
+      select = {
+        enable = true,
+        lookahead = true, -- jump forward to next textobject
+        keymaps = {
+          ['af'] = '@function.outer',
+          ['if'] = '@function.inner',
+          -- (optional) add more:
+          -- ['ac'] = '@class.outer',
+          -- ['ic'] = '@class.inner',
+        },
+      },
+    },
   },
 }

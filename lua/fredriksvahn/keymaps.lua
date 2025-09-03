@@ -5,8 +5,18 @@ keymap.set('n', '<leader>r', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Lef
 keymap.set('n', '<C-a>', '<C-w>p', { silent = true, desc = 'Switch to Last Window' })
 keymap.set('n', '<leader>w', ':setlocal formatoptions-=cro<CR>:w<CR>', { noremap = true, silent = true, desc = '[W]rite without auto comment' })
 keymap.set('n', '<space><space>i', ':e ~/.config/nvim/<CR>', { desc = 'Open [I]nit config' })
-keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR>')
-keymap.set('n', '<space>ss', ':!tmux popup -E bash ~/dotfiles/config/tmux/tmux-sessionizer.sh<CR>')
+keymap.set('n', '<leader>ss', ':!tmux popup -E bash ~/.config/tmux/tmux-sessionizer.sh<CR>')
+keymap.set("n", "<leader>sk", function()
+  local in_tmux = os.getenv("TMUX") ~= nil
+  if in_tmux then
+    -- Popup inside tmux
+    vim.fn.system({ "tmux", "display-popup", "-E",
+      'tmux choose-tree -s "kill-session -t %%"' })
+  else
+    -- Fallback outside tmux (fzf in a terminal split)
+    vim.cmd([[split | terminal bash -lc 'tmux ls -F "#S" | fzf --multi | xargs -r -n1 tmux kill-session -t']])
+  end
+end, { silent = true })
 
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected line [J]own' })
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected line [K]up' })
@@ -50,10 +60,10 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 -- Exit terminal mode shortcut
 keymap.set('t', '<C-t>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>', { desc = 'Discourage using [Left] arrow' })
-keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>', { desc = 'Discourage using [Right] arrow' })
-keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>', { desc = 'Discourage using [Up] arrow' })
-keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>', { desc = 'Discourage using [Down] arrow' })
+-- keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>', { desc = 'Discourage using [Left] arrow' })
+-- keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>', { desc = 'Discourage using [Right] arrow' })
+-- keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>', { desc = 'Discourage using [Up] arrow' })
+-- keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>', { desc = 'Discourage using [Down] arrow' })
 
 keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })

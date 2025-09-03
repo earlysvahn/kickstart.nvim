@@ -2,7 +2,7 @@ return {
   'folke/zen-mode.nvim',
   opts = (function()
     local function get_monitor_based_zen_size()
-      local handle = io.popen 'aerospace list-monitors --focused --json'
+      local handle = io.popen 'hyprctl monitors -j'
       if handle == nil then
         return { width = 0.35, height = 0.83 }
       end
@@ -15,13 +15,19 @@ return {
         return { width = 0.35, height = 0.83 }
       end
 
-      local monitor_name = data[1]['monitor-name'] or 'Unknown Monitor'
+      local monitor_name = nil
+      for _, mon in ipairs(data) do
+        if mon.focused then
+          monitor_name = mon.name
+          break
+        end
+      end
+
+      monitor_name = monitor_name or 'Unknown Monitor'
 
       local monitor_sizes = {
-        ['S24C450'] = { width = 0.8, height = 0.9 },
-        ['MSI G241'] = { width = 0.8, height = 0.9 },
-        ['Built-in Retina Display'] = { width = 0.9, height = 0.9 },
-        ['Dell U4919DW'] = { width = 0.35, height = 0.83 },
+        ['DP-3'] = { width = 0.8, height = 0.9 },
+        ['DP-2'] = { width = 0.35, height = 0.83 },
       }
 
       local size = monitor_sizes[monitor_name] or { width = 0.35, height = 0.83 }
@@ -53,3 +59,4 @@ return {
     { '<leader>z', '<cmd>ZenMode<cr>', desc = 'Toggle [Z]en Mode' },
   },
 }
+

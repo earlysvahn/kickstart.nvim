@@ -34,6 +34,12 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   'tpope/vim-sleuth',
   {
+    'williamboman/mason.nvim',
+    config = function()
+      require('mason').setup()
+    end,
+  },
+  {
     'folke/lazydev.nvim',
     ft = 'lua',
     opts = {

@@ -69,13 +69,15 @@ return {
     vim.keymap.set('n', '<leader>fs/', fzf.grep_curbuf, { desc = '[F]ind [S]earch in Open Files' })
 
     vim.keymap.set('n', '<leader>fn', function()
-      fzf.files { cwd = vim.fn.stdpath 'config' }
+      fzf.files { cwd = vim.fn.stdpath 'config', options = '--hidden' }
     end, { desc = '[F]ind [N]eovim files' })
 
     vim.keymap.set('n', '<leader>fG', fzf.live_grep, { desc = '[F]ind with [A]rgs (live grep)' })
     vim.keymap.set('n', '<leader>fg', function()
-      require('fzf-lua').live_grep { cwd = vim.fn.expand '%:p:h' }
+      require('fzf-lua').live_grep { cwd = vim.fn.expand '%:p:h', options = '--hidden' }
     end)
+
+    vim.keymap.set('n', '<leader>fC', fzf.colorschemes, { desc = '[F]ind [C]olorschemes' })
     vim.keymap.set('n', '<leader>ff', function()
       local cwd = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
       cwd = vim.fn.trim(cwd)
@@ -84,7 +86,7 @@ return {
         cwd = vim.fn.expand '%:p:h'
       end
 
-      require('fzf-lua').files { cwd = cwd }
+      require('fzf-lua').files { cwd = cwd, options = '--hidden' }
     end)
 
     vim.keymap.set('n', '<leader>fz', fzf.grep, { desc = '[F]ind with Args' })
