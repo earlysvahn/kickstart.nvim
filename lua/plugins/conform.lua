@@ -76,7 +76,7 @@ return {
       go = { 'goimports' },
       terraform = { 'terraform' },
       dockerfile = { 'dockfmt' },
-      cs = { 'csharpier' },
+      -- cs = { 'csharpier' },
       sql = { 'sql_formatter' },
     },
   },
